@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confidentialité – GTA Clip Factory</title>
+<meta name="description" content="Politique de confidentialité de GTA Clip Factory : données conservées, usage, suppression.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<nav aria-label="Pages">
+  <a href="index.html">Présentation</a>
+  <a href="terms.html">Conditions d’utilisation</a>
+  <a href="privacy.html" aria-current="page">Confidentialité</a>
+</nav>
+
+<h1>Politique de confidentialité</h1>
+<p class="meta">Dernière mise à jour : 12 novembre 2026</p>
+
+<h2>Données conservées</h2>
+<ul>
+  <li><strong>Compte</strong> : adresse e-mail et identifiant de connexion.</li>
+  <li><strong>Vidéos et clips</strong> que l’utilisateur importe, leurs extraits, sous-titres, titres et descriptions, et l’état des droits et des approbations.</li>
+  <li><strong>Comptes de plateforme connectés</strong> (YouTube, TikTok) : l’identifiant du compte ou de la chaîne, le nom affiché, les autorisations accordées et, le cas échéant, la date d’expiration de la connexion.</li>
+  <li><strong>Jeton d’accès</strong> à la plateforme, conservé <strong>chiffré</strong> sur le serveur. Il n’est jamais affiché ni envoyé au navigateur.</li>
+  <li><strong>Journal d’activité</strong> : qui a fait quoi (approbation, publication, connexion), et le coût des appels à des services d’intelligence artificielle.</li>
+</ul>
+
+<h2>Données de TikTok et de Google</h2>
+<p>L’outil lit uniquement le profil de base (identifiant, nom affiché) pour reconnaître le compte connecté, et, si l’utilisateur l’autorise, met en ligne des vidéos <strong>qu’il a lui-même approuvées</strong>. Il ne lit ni les messages, ni la liste d’abonnés, ni les vidéos des autres utilisateurs.</p>
+
+<h2>À quoi servent ces données</h2>
+<p>Uniquement à faire fonctionner l’outil pour la personne concernée : afficher ses clips, publier ce qu’elle a approuvé, montrer l’état de ses connexions. Elles ne sont ni vendues, ni louées, ni utilisées pour de la publicité.</p>
+
+<h2>Intelligence artificielle</h2>
+<p>Pour proposer des titres, descriptions et scripts, l’outil envoie à un service d’intelligence artificielle (Anthropic) des extraits de texte (transcription) et quelques images fixes d’un clip. Ces envois servent à produire les suggestions demandées. Aucun jeton de plateforme n’y est envoyé.</p>
+
+<h2>Prestataires techniques</h2>
+<p>Les données sont hébergées chez Supabase (base de données et stockage de fichiers). Le moteur de traitement vidéo tourne sur un serveur contrôlé par le créateur de l’outil. Aucune autre société n’y a accès.</p>
+
+<h2>Durée de conservation et suppression</h2>
+<ul>
+  <li>Quand l’utilisateur <strong>déconnecte</strong> un compte de plateforme, l’outil demande à la plateforme de retirer l’accès, puis supprime le compte et son jeton chiffré.</li>
+  <li>L’utilisateur peut supprimer une vidéo ou un clip depuis l’outil ; les fichiers correspondants sont supprimés.</li>
+  <li>Il peut aussi retirer l’accès de l’application directement dans les réglages de sécurité de son compte YouTube/Google ou TikTok.</li>
+  <li>Pour demander la suppression complète de son compte et de ses données, ou une copie de ses données, il ouvre une demande via le contact indiqué ci-dessous.</li>
+</ul>
+
+<h2>Sécurité</h2>
+<p>Les connexions sont chiffrées en transit (https). Les jetons de plateforme sont chiffrés au repos. Les droits d’accès sont contrôlés par la base de données, par espace de travail et par rôle.</p>
+
+<h2>Contact</h2>
+<p>Pour toute question ou demande (suppression de données, copie, signalement), ouvrez une demande sur <a href="https://github.com/ansufd1ne/gta-clip-factory-site/issues">la page de suivi du projet</a>.</p>
+</main>
+</body>
+</html>

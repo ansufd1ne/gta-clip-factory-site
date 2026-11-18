@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>Connexion TikTok</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Connexion TikTok</h1>
+<p id="msg">Retour vers GTA Clip Factory…</p>
+<p class="meta">Cette page ne garde rien : elle renvoie le navigateur vers l’application installée sur votre ordinateur (http://localhost:8000).</p>
+</main>
+<script>
+// TikTok only accepts an https redirect address. This static page is that address; it hands the answer over to the
+// engine running on the same computer as the browser. The target is FIXED (no address is read from the URL), and
+// only the three values of the OAuth answer are forwarded, each checked for shape first.
+(function () {
+  var TARGET = "http://localhost:8000/social/tiktok/callback";
+  var q = new URLSearchParams(location.search);
+  var out = new URLSearchParams();
+  var code = q.get("code"), state = q.get("state"), error = q.get("error");
+  if (code && /^[\w.~%\-*]{1,2048}$/.test(code)) out.set("code", code);
+  if (state && /^[\w-]{1,200}$/.test(state)) out.set("state", state);
+  if (error && /^[\w.-]{1,200}$/.test(error)) out.set("error", error);
+  if (!out.has("code") && !out.has("error")) {
+    document.getElementById("msg").textContent = "Aucune réponse de TikTok à transmettre. Relancez la connexion depuis GTA Clip Factory.";
+    return;
+  }
+  history.replaceState(null, "", location.pathname);   // the code leaves the address bar and the history of this page
+  location.replace(TARGET + "?" + out.toString());
+})();
+</script>
+</body>
+</html>

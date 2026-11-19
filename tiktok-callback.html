@@ -17,13 +17,13 @@
 <script>
 // TikTok only accepts an https redirect address. This static page is that address; it hands the answer over to the
 // engine running on the same computer as the browser. The target is FIXED (no address is read from the URL), and
-// only the three values of the OAuth answer are forwarded, each checked for shape first.
+// only the three values of the OAuth answer are forwarded, each checked for shape first (TikTok codes may contain * and !).
 (function () {
   var TARGET = "http://localhost:8000/social/tiktok/callback";
   var q = new URLSearchParams(location.search);
   var out = new URLSearchParams();
   var code = q.get("code"), state = q.get("state"), error = q.get("error");
-  if (code && /^[\w.~%\-*]{1,2048}$/.test(code)) out.set("code", code);
+  if (code && /^[\w.~%\-*!+\/=]{1,2048}$/.test(code)) out.set("code", code);
   if (state && /^[\w-]{1,200}$/.test(state)) out.set("state", state);
   if (error && /^[\w.-]{1,200}$/.test(error)) out.set("error", error);
   if (!out.has("code") && !out.has("error")) {
